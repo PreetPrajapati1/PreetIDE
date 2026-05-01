@@ -1,0 +1,62 @@
+:root{
+  --bg:#0f1720;
+  --panel:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#7c5cff;
+  --accent-2:#00c2a8;
+  --surface:#111827;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter,Segoe UI,Arial, sans-serif;
+  background:linear-gradient(180deg,#071021 0%, #081226 100%);
+  color:#e6eef6;
+  height:100vh;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 16px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+}
+
+.brand{
+  font-weight:700;
+  letter-spacing:0.6px;
+  color:var(--accent);
+  font-size:18px;
+}
+
+.controls{display:flex;gap:8px;align-items:center}
+select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 8px;color:var(--muted);border-radius:6px}
+button{background:linear-gradient(180deg,var(--accent),#6548d9);color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.4)}
+button#clearBtn{background:transparent;color:var(--muted);box-shadow:none;border:1px solid rgba(255,255,255,0.03);padding:6px 8px}
+
+.status{font-size:13px;color:var(--muted);margin-left:8px}
+
+.workspace{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:12px;
+  padding:12px;
+  height: calc(100vh - 64px);
+}
+
+.editor-container, .output-container{background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column}
+.pane-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:13px}
+.pane-actions{display:flex;gap:8px}
+
+.editor{height:100%;min-height:0}
+.output{flex:1;background:#02040a;color:#d6eefa;padding:12px;margin:0;overflow:auto;font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Courier New', monospace;font-size:13px}
+
+@media (max-width:900px){
+  .workspace{grid-template-columns:1fr;grid-auto-rows:1fr}
+  .output{height:220px}
+}
+
+.pane-header button{font-size:13px}
